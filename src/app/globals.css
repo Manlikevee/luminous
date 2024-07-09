@@ -1202,7 +1202,11 @@ height: 400px !important;
   animation: spin 1s ease-in-out infinite;
 }
 
-
+.flx{
+  display: flex;
+  gap: 10px;
+  
+}
 
 @keyframes spin {
   to {
