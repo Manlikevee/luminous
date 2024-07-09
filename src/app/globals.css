@@ -815,7 +815,7 @@ We give it an opacity leaner to .25s, that way when we hover we will get a nice 
   top: 59px;
   flex-direction: column;
   background-color: var(--header-bg-color);
-  width: 100%;
+  width: 90%;
   height: 400px;
 }
   .productcategory{
