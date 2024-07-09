@@ -54,6 +54,41 @@ const page = () => {
     });
   }, []); 
 
+
+
+
+  const addToCart = () => {
+    console.log('clickedddddd')
+    // Check if cartItems cookie already exists
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    // Check if item already exists in cart
+    const existingItem = cartItems.find(item => item.id === data.id);
+
+    if (existingItem) {
+      // If item exists, update quantity
+      existingItem.qty += 1;
+      toast.message('Info Quantity Increased', {
+        description: 'Item Added To Cart',
+      })
+    } else {
+      // If item does not exist, add new item to cartItems array
+      cartItems.push({
+        id: id,
+        name: data.name,
+        price:  data.price,
+        image:  data.image,
+        qty: 1, // Initial quantity is 1
+      });
+      toast.message('Info', {
+        description: 'Item Added To Cart',
+      })
+    }
+
+    // Store updated cartItems array in cookie
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));// Expires in 7 days or adjust as needed
+  };
+
   
   return (
     <>
@@ -87,11 +122,18 @@ const page = () => {
 <div className="proddesc hgh">
 {data?.product_description}
 </div>
-<div className="herobtn">
+
+{
+    data && (
+      <div className="herobtn"  onClick={addToCart}>
+
      <span className="material-symbols-outlined">
 shopping_bag
 </span>   Add to cart  
     </div>
+    )
+   }
+
 
     <div className='extradetails hgh'>
         <small>sku: <span>{data?.sku}</span></small>
