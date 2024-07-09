@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import Herocards from '@/components/Herocards'
@@ -14,6 +15,7 @@ const page = () => {
         <Herocards toptext={'Affordable Luxury'} bottomtext={"we believe that exceptional design and quality shouldn't come with a hefty price tag. Our mission is to provide you with beautifully crafted lamps that are both stylish and affordable, making it easier for you to illuminate your home without breaking the bank."}/>
         <Herocards toptext={'50% Off'} bottomtext={'We love rewarding our customers with fantastic deals and discounts, making it even easier to bring home the perfect lamp.'}/>
       </div>
+      <Footer/>
     </div>
   )
 }

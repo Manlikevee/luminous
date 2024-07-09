@@ -8,6 +8,7 @@ import CurrencyFormatter from '@/components/CurrencyFormatter';
 import { toast } from 'sonner';
 import { database } from '@/components/firebaseConfig';
 import { ref, push, set } from 'firebase/database';
+import Footer from '@/components/Footer';
 const page = () => {
   const router = useRouter();
   // Initialize state variables for form fields
@@ -233,6 +234,7 @@ const page = () => {
   
     </div>
         </div>
+        <Footer/>
         </div>
   )
 }

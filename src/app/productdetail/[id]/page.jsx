@@ -13,6 +13,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import CurrencyFormatter from '../../../components/CurrencyFormatter';
 import { toast } from 'sonner';
+import Footer from '@/components/Footer';
 
 const page = () => {
   const router = useRouter();
@@ -211,7 +212,9 @@ loop={false}
 
         </div>
 
-        
+        <br />
+      <br />
+<Footer/>
         </>
   )
 }

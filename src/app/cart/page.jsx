@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Pagebadge from '@/components/Pagebadge';
 import CurrencyFormatter from '@/components/CurrencyFormatter';
 import { useRouter } from 'next/navigation';
+import Footer from '@/components/Footer';
 const Page = () => {
   const router = useRouter();
   const [cartItems, setCartItems] = useState([]);
@@ -126,6 +127,7 @@ const Page = () => {
         </div>
         )}
       </div>
+      <Footer/>
     </>
   );
 };

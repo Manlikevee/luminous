@@ -5,6 +5,7 @@ import { ref, push, set } from 'firebase/database';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 import Header from '@/components/Header';
 import React, { useState, useRef } from 'react';
+import Footer from '@/components/Footer';
 
 const Page = () => {
   const [productName, setProductName] = useState('');
@@ -107,6 +108,9 @@ const Page = () => {
   return (
     <div>
       <Header />
+
+      <div className="containers">
+      <div className="creationform">
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="productName">Product Name:</label>
@@ -210,8 +214,14 @@ const Page = () => {
           <label htmlFor="imageTwo">Image Two:</label>
           <input type="file" ref={imageTwoInput} onChange={handleImageChange(imageTwoInput, setImageTwo)} />
         </div>
-        <button type="submit">Submit</button>
+        <button  type="submit" className='herobtn'>Submit</button>
       </form>
+        </div>
+      </div>
+
+      <br />
+      <br />
+<Footer/>
     </div>
   );
 };

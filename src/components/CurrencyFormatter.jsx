@@ -17,7 +17,7 @@ const formatCurrency = (amount) => {
 const CurrencyFormatter = ({ amount }) => {
     // Ensure amount is a number and default to 0 if it's not provided or invalid
     const validAmount = isNaN(amount) ? 0 : amount;
-    return <span>{formatCurrency(validAmount)}</span>;
+    return <div>{formatCurrency(validAmount)}</div>;
   };
 
 export default CurrencyFormatter;

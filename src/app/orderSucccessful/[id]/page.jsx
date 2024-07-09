@@ -7,6 +7,7 @@ import { useParams } from 'next/navigation';
 import { ref, onValue } from 'firebase/database';
 import { database } from '@/components/firebaseConfig';
 import { useRouter } from 'next/navigation';
+import Footer from '@/components/Footer';
 const page = () => {
   const router = useRouter();
   const { id } = useParams();
@@ -92,6 +93,9 @@ Luminous will review all orders. If a problem is found during verification, we w
 
 
         </div>
+        <br />
+      <br />
+<Footer/>
         </div>
   )
 }

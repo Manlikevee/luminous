@@ -2,6 +2,7 @@
 import Header from '@/components/Header';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Footer from '@/components/Footer';
 
 const page = () => {
   const router = useRouter();
@@ -124,6 +125,7 @@ Saturday to Sunday: closed</p>
   
     </div>
         </div>
+        <Footer/>
         </div>
   )
 }

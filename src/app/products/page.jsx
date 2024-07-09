@@ -5,6 +5,7 @@ import Productcard from '@/components/Productcard'
 import React, { useEffect, useState } from 'react';
 import { database } from '@/components/firebaseConfig';
 import { ref, onValue } from 'firebase/database';
+import Footer from '@/components/Footer';
 
 const page = () => {
   const allCategories = [
@@ -20,7 +21,7 @@ const page = () => {
     'Retro',
     'Wood',
   ];
-
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [categoryCounts, setCategoryCounts] = useState({});
 
@@ -32,6 +33,7 @@ const page = () => {
         object_key: key,
         ...fetchedData[key]
       }));
+      setLoading(false)
       setData(dataWithKeys);
 
       const counts = dataWithKeys.reduce((acc, product) => {
@@ -58,6 +60,7 @@ const page = () => {
         <Pagebadge title={'home/product'}/>
 
         <br />
+
         <div className="containers">
         <div className="productflex">
         <div className="productcategory">
@@ -65,6 +68,13 @@ const page = () => {
 <div className="cattitle">
 Categories
 </div>
+{loading && (
+     <div className="loadingovls">
+     <div className="simple-spinner">
+       <span></span>
+     </div>
+        </div>
+)}
 <div className="categories">
 {Object.entries(categoryCounts).map(([category, count]) => (
           <div className="catvalues" key={category}>
@@ -77,6 +87,29 @@ Categories
   </div>
   </div>
             <div className="productgrid">
+
+            {loading && (
+     <div className="loadingovls">
+     <div className="simple-spinner">
+       <span></span>
+     </div>
+        </div>
+)}
+            {loading && (
+     <div className="loadingovls">
+     <div className="simple-spinner">
+       <span></span>
+     </div>
+        </div>
+)}
+            {loading && (
+     <div className="loadingovls">
+     <div className="simple-spinner">
+       <span></span>
+     </div>
+        </div>
+)}
+
             {data.slice().reverse().map(product => (
         <Productcard
           key={product.id}
@@ -93,7 +126,9 @@ Categories
         </div>
         </div>
 
-        
+        <br />
+      <br />
+<Footer/>
         </>
   )
 }
