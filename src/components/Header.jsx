@@ -55,9 +55,9 @@ const Header = () => {
          
           <Link href="/products">Products</Link>
           <Link href="/cart">Cart</Link>
-          <Link href="/">About Us</Link>
-          <Link href="/">Contact Us</Link>
-          <Link href="/">Products</Link>
+          <Link href="/about">About Us</Link>
+          <Link href="/contact">Contact Us</Link>
+
           {/* <span className="material-symbols-outlined" >
             contrast
           </span> */}

@@ -1,17 +1,18 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-const Hero = () => {
+const Hero = ({titletext, subtitletext}) => {
   return (
     <div className='herosec'>
 
         <div className="containers">
 <div className="sideone">
     <div className="herotitle">
-     Radiant Living
+      {titletext || 'Radiant Living' }
     </div>
     <div className="herobody">
-    Transform Your Home with Unique Designer Lamps That Blend Style Functionality, and Exceptional Craftsmanship.
+   
+    {subtitletext || ' Transform Your Home with Unique Designer Lamps That Blend Style Functionality, and Exceptional Craftsmanship.' }
     </div>
 
     <Link href={'/products'} className="herobtn">
