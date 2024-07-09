@@ -24,6 +24,21 @@ const Header = () => {
     document.body.classList.toggle('dark-mode', newMode);
     document.body.classList.toggle('light-mode', !newMode);
   };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleClickLink = (event) => {
+    // Remove 'linksactive' class from all links
+    document.getElementById('middlelinks').classList.toggle('linksactive')
+
+    // Calculate and set height of links dynamically
+    const linksHeight = document.getElementById('middlelinks').clientHeight;
+    // Example: console.log(linksHeight);
+  };
 
   return (
     <header>
@@ -33,7 +48,7 @@ const Header = () => {
           LUMINOUS
           </Link>
         </div>
-        <div className="links" id="middlelinks">
+        <div className={`links ${isMenuOpen ? 'linksactive' : ''}`} id="middlelinks">
          
           <Link href="/products">Products</Link>
           <Link href="/cart">Cart</Link>
@@ -46,12 +61,14 @@ const Header = () => {
           <span className="material-symbols-outlined" onClick={toggleDarkMode}>
           brightness_6
 </span>
+
+
+        </div>
+<div className="toggle" onClick={toggleMenu}>
 <span className="material-symbols-outlined" >
 menu
 </span>
-
-        </div>
-
+</div>
       </div>
     </header>
   )

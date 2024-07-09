@@ -93,7 +93,7 @@ header {
 
   z-index: 9999;
   /* Line/Bottom */
- border-bottom: 1px solid var(--bordertwo);
+ border-bottom: 1px solid var(--inactive-color3);
 }
 
 
@@ -361,7 +361,13 @@ font-size: 35.62px;
 font-weight: 500;
 line-height: 65.43px;
 text-align: left;
-
+color: var(--subtitle-color);
+}
+.toggle{
+  display: none;
+}
+.hbtmtxt{
+  color: var(--subtitle-color3);
 }
 
 .hbtmtxt{
@@ -769,12 +775,48 @@ We give it an opacity leaner to .25s, that way when we hover we will get a nice 
 
 @media screen and (max-width:1000px) {
   .links{
+    width: 100%;
+  
     display: none;
+    height: 0px;
+    flex-direction: column;
+    overflow: hidden;
+    /* transition: 0.5s ease-in; */
+    position: absolute;
   }
   .productflex{
     flex-direction: column;
   }
+.toggle{
+  display: flex;
+  color: var(--subtitle-color3);
+}
+.sidebar {
+  width: 25%;
+  padding: 17px;
+  background-color: var(--header-bg-color);
+  height: 100%;
+  gap: 40px;
+}
+.sidebarshow {
+  left: 0;
+  width: 50%;
+  padding: 20px;
+  z-index: 999999;
+  height: 100vh;
+  background-color: var(--header-bg-color);
 
+
+}
+.linksactive {
+  display: flex;
+  position: absolute;
+  top: 59px;
+  flex-direction: column;
+  background-color: var(--header-bg-color);
+  width: 100%;
+  height: 400px;
+}
   .productcategory{
     width: 100%;
   

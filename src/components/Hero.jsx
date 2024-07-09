@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 const Hero = () => {
   return (
     <div className='herosec'>
@@ -13,11 +14,11 @@ const Hero = () => {
     Transform Your Home with Unique Designer Lamps That Blend Style Functionality, and Exceptional Craftsmanship.
     </div>
 
-    <div className="herobtn">
+    <Link href={'/products'} className="herobtn">
     View more  <span className="material-symbols-outlined">
 chevron_right
 </span>
-    </div>
+    </Link>
 </div>
 <div className="sidetwo">
 <Image

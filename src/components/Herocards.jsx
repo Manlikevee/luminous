@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Herocards = ({toptext, bottomtext }) => {
@@ -14,11 +15,11 @@ const Herocards = ({toptext, bottomtext }) => {
     {bottomtext}
 </div>
 
-<div className="herobtn">
+<Link href={'/products'} className="herobtn">
     View more  <span className="material-symbols-outlined">
 chevron_right
 </span>
-    </div>
+    </Link>
             </div>
 
 
