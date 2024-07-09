@@ -825,7 +825,12 @@ form{
   color: var(--subtitle-color3);
   height: fit-content;
 }
-
+.paymentgateway button{
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
 .creationform .herobtn{
   width: 100%;
   text-align: center;
@@ -833,7 +838,104 @@ form{
   display: flex;
   justify-content: center;
 }
+.herobtn{
+  user-select: none;
+ }
+
+ .successfulbar{
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+
+ .successcontent{
+  max-width: 60%;
+  flex-direction: column;
+  padding: 30px;
+  border: 1px solid var(--inactive-color);
+  border-radius: 6px;
+  color: var(--subtitle-color3);
+  display: flex;
+  gap: 20px;
+ }
+.pdiv{
+  display: flex;
+  gap: 20px;
+  padding-block: 6px;
+  font-family: Poppins;
+font-size: 15.01px;
+font-weight: 400;
+line-height: 23.23px;
+text-align: left;
+
+}
+
+.successflex{
+  display: flex;
+  gap: 20px;
+}
+.successcontents{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.paymentreceived{
+  font-family: Poppins;
+font-size: 14.89px;
+font-weight: 400;
+text-align: left;
+padding-bottom: 7px;
+border-bottom: 1px solid var(--border-color);
+
+}
+.note{
+  margin-top: 6px;
+  padding: 10px;
+  color: #004085;
+  background-color: #cce5ff;
+  border-color: #b8daff;
+  font-size: 13px;
+  border-radius: 4px;
+  line-height: 22.51px;
+}
+.pdiv span{
+  font-size: 13px;
+}
+.delivery{
+  color: var(--active-color2);
+}
+.div{
+  width: 35%;
+  color: var(--body-color);
+}
+ .successcontent h3{
+  font-family: Poppins;
+font-size: 21.21px;
+font-weight: 600;
+line-height: 32.51px;
+text-align: left;
+color: var(--body-color);
+ }
 @media screen and (max-width:1000px) {
+ .toggle{
+  cursor: pointer;
+ }
+ .successcontent{
+  width: 100%;
+  max-width: 95%;
+  padding: 12px;
+ }
+ .pdiv{
+  width: 100%;
+ }
+ .successflex{
+  flex-direction: column;
+ }
+ .div{
+  width: 50%;
+ }
   .links{
     width: 100%;
   
@@ -843,6 +945,16 @@ form{
     overflow: hidden;
     /* transition: 0.5s ease-in; */
     position: absolute;
+  }
+  .cflx{
+    display: flex;
+   flex-direction: column;
+    gap: 20px;
+  }
+
+  .paymentgateway{
+    width: 100%;
+    position: relative;
   }
   .productflex{
     flex-direction: column;
@@ -1080,7 +1192,21 @@ height: 400px !important;
 }
   
 }
+.simple-spinner {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #3498db;
+  animation: spin 1s ease-in-out infinite;
+}
 
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 @media screen and (max-width:480px) {
   .cardcontent {
     padding: 60px;

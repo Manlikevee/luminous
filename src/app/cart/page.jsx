@@ -3,7 +3,9 @@ import React, { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import Pagebadge from '@/components/Pagebadge';
 import CurrencyFormatter from '@/components/CurrencyFormatter';
+import { useRouter } from 'next/navigation';
 const Page = () => {
+  const router = useRouter();
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
@@ -40,6 +42,9 @@ const Page = () => {
     return cartItems.reduce((acc, item) => acc + (item.qty * item.price), 0);
   };
 
+  function checkout(){
+    router.push(`/checkout/${Math.floor(Math.random() * 11234340)}`);
+  }
   return (
     <>
       <Header />
@@ -113,8 +118,8 @@ const Page = () => {
           </div>
         </div>
         <br />
-        { cartItems.length > 1  && (
-        <div className="herobtn">
+        { cartItems.length >= 1  && (
+        <div className="herobtn" onClick={checkout}>
           <span className="material-symbols-outlined">
             shopping_bag
           </span> Proceed to checkout
