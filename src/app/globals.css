@@ -809,14 +809,33 @@ We give it an opacity leaner to .25s, that way when we hover we will get a nice 
 
 
 }
+
+
+.myloadingani {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 99999;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+header{
+  z-index: 9999999;
+}
+
 .linksactive {
   display: flex;
   position: absolute;
-  top: 59px;
+  top: 69px;
   flex-direction: column;
   background-color: var(--header-bg-color);
   width: 90%;
-  height: 400px;
+  height: fit-content;
+  padding-bottom: 10px;
 }
   .productcategory{
     width: 100%;

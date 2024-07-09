@@ -41,7 +41,10 @@ const Header = () => {
   };
 
   return (
+    <>
     <header>
+    
+      
       <div className="containers">
         <div className="logo">
           <Link href="/">
@@ -71,6 +74,8 @@ menu
 </div>
       </div>
     </header>
+      {isMenuOpen && (<div className="myloadingani"></div>) }
+      </>
   )
 }
 
