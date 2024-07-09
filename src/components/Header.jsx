@@ -52,7 +52,7 @@ const Header = () => {
           </Link>
         </div>
         <div className={`links ${isMenuOpen ? 'linksactive' : ''}`} id="middlelinks">
-         
+        <Link href="/">Home</Link>
           <Link href="/products">Products</Link>
           <Link href="/cart">Cart</Link>
           <Link href="/about">About Us</Link>
