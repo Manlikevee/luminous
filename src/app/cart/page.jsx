@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import Pagebadge from '@/components/Pagebadge';
-
+import CurrencyFormatter from '@/components/CurrencyFormatter';
 const Page = () => {
   const [cartItems, setCartItems] = useState([]);
 
@@ -69,7 +69,7 @@ const Page = () => {
                   <span>{product.name}</span>
                 </div>
               </div>
-              <div className="itemmid">{product.price}</div>
+              <div className="itemmid"><CurrencyFormatter amount={product.price|| 0} /></div>
               <div className="itemmid">
                 <div className="quantity-field">
                   <button
@@ -86,7 +86,10 @@ const Page = () => {
                   </button>
                 </div>
               </div>
-              <div className="itemmid">₦{product.qty * product.price}</div>
+              <div className="itemmid">
+              
+              <CurrencyFormatter amount={product.qty * product.price|| 0} />
+              </div>
             </div>
           ))}
   </>
@@ -105,7 +108,8 @@ const Page = () => {
             Subtotal
           </div>
           <div className="itemsmall">
-            ₦{calculateSubtotal()}
+           
+            <CurrencyFormatter amount={calculateSubtotal()|| 0} />
           </div>
         </div>
         <br />

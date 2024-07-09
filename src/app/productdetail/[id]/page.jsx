@@ -74,13 +74,13 @@ const page = () => {
     } else {
       // If item does not exist, add new item to cartItems array
       cartItems.push({
-        id: id,
-        name: data.name,
-        price:  data.price,
-        image:  data.image,
+        id: data.id,
+        name: data.product_name,
+        price:  data.product_price,
+        image:  data.image_one,
         qty: 1, // Initial quantity is 1
       });
-      toast.message('Info', {
+      toast.message(`${data.product_name}`, {
         description: 'Item Added To Cart',
       })
     }

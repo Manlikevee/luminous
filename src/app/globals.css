@@ -773,7 +773,66 @@ We give it an opacity leaner to .25s, that way when we hover we will get a nice 
 .swap-on-hover:hover > .swap-on-hover__front-image{
   opacity: 0;
 }
+input, textarea, select {
+  width: 100%;
+  padding: 7px;
+  border: 1px solid var(--search-border-color);
+  background-color: var(--inactive-color);
+  color: #878e98;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 26.4px;
+  letter-spacing: .002em;
+  outline: none;
+  text-align: left;
+}
 
+.creationform {
+  padding: 20px;
+  width: 100%;
+  margin: auto;
+  border: 1px solid var(--inactive-color);
+  background-color: var(--header-bg-color);
+  color: var(--subtitle-color3);
+}
+label{
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.colorhrading{
+  color: var(--body-color);
+  font-weight: 600;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.cflx{
+  display: flex;
+  gap: 20px;
+}
+
+.paymentgateway{
+  width: 40%;
+  position: sticky;
+  top: 16%;
+  padding: 10px;
+  border: 1px solid var(--inactive-color);
+  background-color: var(--header-bg-color);
+  color: var(--subtitle-color3);
+  height: fit-content;
+}
+
+.creationform .herobtn{
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
 @media screen and (max-width:1000px) {
   .links{
     width: 100%;
@@ -854,16 +913,19 @@ position: relative;
   .productgrid {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     margin-top: 20px;
- padding: 10px;
+ padding: 5px;
     gap: 10px;
     width: 100%;
     display: grid;
 }
 .productcard {
   width: 100%;
-  padding: 8px;
+  padding: 5px;
   margin-top: 9px;
 }
+
+
+
 .productdetailcontainer{
   flex-direction: column;
   max-height: fit-content;

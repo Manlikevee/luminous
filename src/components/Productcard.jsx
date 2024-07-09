@@ -27,7 +27,7 @@ const Productcard = ({ name, price, image, id, imagetwo }) => {
         image: image,
         qty: 1, // Initial quantity is 1
       });
-      toast.message('Info', {
+      toast.message(`${name}`, {
         description: 'Item Added To Cart',
       })
     }
