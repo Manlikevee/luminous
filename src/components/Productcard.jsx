@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import CurrencyFormatter from '@/components/CurrencyFormatter';
 const Productcard = ({ name, price, image, id, imagetwo }) => {
   return (
     <div className='productcard' key={id}>
@@ -14,7 +15,11 @@ const Productcard = ({ name, price, image, id, imagetwo }) => {
       {name}
         </div>
      <div className="pprice">
-     ₦{price}
+
+     
+   {
+    price && (<CurrencyFormatter amount={price|| 0} />)
+   }
      </div>
      <div className="herobtn">
      <span className="material-symbols-outlined">

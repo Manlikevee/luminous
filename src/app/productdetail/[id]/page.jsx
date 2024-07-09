@@ -11,7 +11,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import CurrencyFormatter from '../../../components/formatcurrency';
+import CurrencyFormatter from '../../../components/CurrencyFormatter';
 import { toast } from 'sonner';
 
 const page = () => {

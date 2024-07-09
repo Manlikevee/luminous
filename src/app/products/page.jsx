@@ -5,6 +5,7 @@ import Productcard from '@/components/Productcard'
 import React, { useEffect, useState } from 'react';
 import { database } from '@/components/firebaseConfig';
 import { ref, onValue } from 'firebase/database';
+
 const page = () => {
   const allCategories = [
     'Decoration',
