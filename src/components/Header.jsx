@@ -43,10 +43,10 @@ const Header = () => {
           {/* <span className="material-symbols-outlined" >
             contrast
           </span> */}
-          <span className="material-symbols-outlined">
-search
+          <span className="material-symbols-outlined" onClick={toggleDarkMode}>
+          brightness_6
 </span>
-<span className="material-symbols-outlined" onClick={toggleDarkMode}>
+<span className="material-symbols-outlined" >
 menu
 </span>
 
