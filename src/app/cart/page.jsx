@@ -38,7 +38,7 @@ const Page = () => {
   return (
     <>
       <Header/>
-      <Pagebadge/>
+      <Pagebadge title={'cart'}/>
 
       <br />
       <div className="containers">

@@ -90,10 +90,10 @@ header {
   position: sticky;
   top: 0;
   width: 100%;
-
+padding: 3px;
   z-index: 9999;
   /* Line/Bottom */
- border-bottom: 1px solid var(--inactive-color3);
+  border-bottom: 1px solid var(--subtitle-color2);
 }
 
 
@@ -209,6 +209,7 @@ color: var(--logocolor)
   min-height: 410px;
   background-color: var(--herobg);
   width: 100%;
+  border-bottom: 1px solid var(--subtitle-color2);
 }
 .herosec .containers{
   display: flex;
@@ -926,6 +927,44 @@ height: 400px !important;
     line-height: 34.25px;
     text-align: left;
     color: var(--body-color);
+}
+
+.carthead, .cartbody {
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid var(--border-color);
+  width: 100%;
+  padding: 10px;
+  align-items: start;
+  flex-direction: column;
+}
+.itembig, .itemmid, .itemmid {
+  padding: 5px;
+  width: 100%;
+}
+.quantity-field .number {
+  display: inline-block;
+  text-align: center;
+  border: none;
+  border-top: 1px solid var(--inactive-color3);
+  border-bottom: 1px solid var(--inactive-color3);
+  border-left: 1px solid var(--inactive-color3);
+  margin: 0px;
+  width: 60%;
+  height: 100%;
+  line-height: 40px;
+  font-size: 11pt;
+  box-sizing: border-box;
+  background: var(--header-bg-color);
+  font-family: calibri;
+}
+.quantity-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 40px;
+  margin: 0;
 }
 .herobody {
   font-family: Poppins;
