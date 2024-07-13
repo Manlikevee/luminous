@@ -41,8 +41,8 @@ const Productcard = ({ name, price, image, id, imagetwo }) => {
   return (
     <div className='productcard' key={id}>
         <Link href={`/productdetail/${id}`} className="imagecard swap-on-hover">
-        <img src={image} alt={name} className='swap-on-hover__front-image' />
-        <img src={imagetwo} alt={name} className='swap-on-hover__back-image' />
+        <img src={`https://api.timbu.cloud/images/${image}`} alt={name} className='swap-on-hover__front-image' />
+        <img src={`https://api.timbu.cloud/images/${image}`} alt={name} className='swap-on-hover__back-image' />
         </Link>
         
 

@@ -2,7 +2,8 @@
 import Header from '@/components/Header'
 import Pagebadge from '@/components/Pagebadge'
 import Productcard from '@/components/Productcard'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState , useContext} from 'react'
+import { VeeContext } from "@/components/Chatcontext";
 import { database } from '@/components/firebaseConfig';
 import { ref, onValue } from 'firebase/database';
 import Footer from '@/components/Footer';
@@ -21,37 +22,12 @@ const page = () => {
     'Retro',
     'Wood',
   ];
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
-  const [categoryCounts, setCategoryCounts] = useState({});
 
-  useEffect(() => {
-    const dbRef = ref(database, '/products');
-    onValue(dbRef, (snapshot) => {
-      const fetchedData = snapshot.val();
-      const dataWithKeys = Object.keys(fetchedData).map(key => ({
-        object_key: key,
-        ...fetchedData[key]
-      }));
-      setLoading(false)
-      setData(dataWithKeys);
+  // const [categoryCounts, setCategoryCounts] = useState({});
 
-      const counts = dataWithKeys.reduce((acc, product) => {
-        const category = product.product_category;
-        if (category) {
-          acc[category] = (acc[category] || 0) + 1;
-        }
-        return acc;
-      }, {});
+  const { data, loading, activeuserid, activechat } = useContext(VeeContext);
 
-      const allCategoryCounts = allCategories.reduce((acc, category) => {
-        acc[category] = counts[category] || 0;
-        return acc;
-      }, {});
 
-      setCategoryCounts(allCategoryCounts);
-    });
-  }, []);
 
   
   return (
@@ -75,12 +51,43 @@ Categories
      </div>
         </div>
 )}
+
 <div className="categories">
-{Object.entries(categoryCounts).map(([category, count]) => (
-          <div className="catvalues" key={category}>
-            {category} <span>({count})</span>
-          </div>
-        ))}
+  <div className="catvalues">
+    Decoration <span>(0)</span>
+  </div>
+  <div className="catvalues">
+    Ceiling <span>(4)</span>
+  </div>
+  <div className="catvalues">
+    Floor <span>(3)</span>
+  </div>
+  <div className="catvalues">
+    LED <span>(1)</span>
+  </div>
+  <div className="catvalues">
+    Furniture <span>(0)</span>
+  </div>
+  <div className="catvalues">
+    Lamps <span>(2)</span>
+  </div>
+  <div className="catvalues">
+    Decorative <span>(0)</span>
+  </div>
+  <div className="catvalues">
+    Lights <span>(2)</span>
+  </div>
+  <div className="catvalues">
+    Modern <span>(2)</span>
+  </div>
+  <div className="catvalues">
+    Retro <span>(0)</span>
+  </div>
+  <div className="catvalues">
+    Wood <span>(0)</span>
+  </div>
+
+
 </div>
 
 

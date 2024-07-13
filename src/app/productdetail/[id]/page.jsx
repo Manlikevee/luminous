@@ -3,11 +3,12 @@ import { useRouter } from 'next/navigation';
 import Header from '@/components/Header'
 import Pagebadge from '@/components/Pagebadge'
 import Productcard from '@/components/Productcard'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'next/navigation';
 import { ref, onValue } from 'firebase/database';
 import { database } from '@/components/firebaseConfig';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { VeeContext } from "@/components/Chatcontext";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -18,42 +19,33 @@ import Footer from '@/components/Footer';
 const page = () => {
   const router = useRouter();
   const { id } = useParams();
-  const [data, setData] = useState(null);
+
   const [products, setproducts] = useState(null);
-  const [loading, setLoading] = useState(true);
+
   
+  const { data, loading, fetchProducts} = useContext(VeeContext);
 
-
+ 
   useEffect(() => {
+    if (!data.length) {
+        fetchProducts();
+    }
+}, []);
 
-    const dbRef = ref(database, `/products/${id}`);
-    onValue(dbRef, (snapshot) => {
-      const fetchedData = snapshot.val();
-      console.log(fetchedData)
-      if(!fetchedData){
-        router.push('/products');
-        toast.message('An Error Occured', {
-          description: 'Product does not Exist or is out of stock',
-        })
-      }
-
-      setData(fetchedData);
-      setLoading(false)
-    });
-  }, [id]);
-
-
-  useEffect(() => {
-    const dbRef = ref(database, '/products');
-    onValue(dbRef, (snapshot) => {
-      const fetchedData = snapshot.val();
-      const dataWithKeys = Object.keys(fetchedData).map(key => ({
-        object_key: key,
-        ...fetchedData[key]
-      }));
-      setproducts(dataWithKeys);
-    });
-  }, []); 
+useEffect(() => {
+    if (!loading) {
+        const product = data.find(product => product.id == id);
+        if (!product) {
+            router.push('/products');
+            toast.error('An Error Occurred', {
+                description: 'Product does not Exist or is out of stock',
+            });
+        } else{
+          console.log(product)
+          setproducts(product)
+        }
+    }
+}, [loading, products, id, router]);
 
 
 
@@ -104,24 +96,24 @@ const page = () => {
     </div> */}
     <div className={`productdetailcontainer ${loading ? 'isloading' : ''}`}>
     <div className="swap-on-hover productimg ">
-<img src={data?.image_one} alt=""  className='swap-on-hover__front-image shim' />
-<img src={data?.image_two} alt=""  className='swap-on-hover__back-image ' />
+<img src={`https://api.timbu.cloud/images/${products?.image_one}`} alt=""  className='swap-on-hover__front-image shim' />
+<img src={`https://api.timbu.cloud/images/${products?.image_one}`} alt=""  className='swap-on-hover__back-image ' />
 <div className="shim hgh"></div>
     </div>
     <div className="producttxt">
-<div className="prodtitle hgh">{data?.product_name}</div>
+<div className="prodtitle hgh">{products?.product_name}</div>
 <div className="prodrating hgh"></div>
 <div className="prodprice hgh">
   {/* <span>₦515,900</span> */}
 
    {
-    data && (<CurrencyFormatter amount={data?.product_price|| 0} />)
+    data && (<CurrencyFormatter amount={products?.product_price|| 0} />)
    }
 
    
     </div>
 <div className="proddesc hgh">
-{data?.product_description}
+{products?.product_description}
 </div>
 
 {
@@ -137,9 +129,9 @@ shopping_bag
 
 
     <div className='extradetails hgh'>
-        <small>sku: <span>{data?.sku}</span></small>
-        <small>Category: <span>{data?.product_category}</span></small>
-        <small>Tag:  <span>{data?.tag}</span></small>
+        <small>sku: <span>{products?.sku}</span></small>
+        <small>Category: <span>{products?.product_category}</span></small>
+        <small>Tag:  <span>{products?.tag}</span></small>
     </div>
 
     <div className="horizontaltabs">
@@ -166,8 +158,10 @@ shopping_bag
 <br />
 <h3 className='pagetitle'>Similar Products</h3>
 
-{products &&(
-  <Swiper
+{data &&(
+ 
+ 
+ <Swiper
 
 spaceBetween={15}
 breakpoints={{
@@ -189,7 +183,7 @@ grabCursor={true}
 loop={false}
 >
 
-{products.map((product, index) => (
+{data.map((product, index) => (
   <SwiperSlide key={index} className="pillxx">
         <Productcard
           key={product.id}

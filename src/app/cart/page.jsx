@@ -71,7 +71,7 @@ const Page = () => {
               </div>
               <div className="itembig">
                 <div className="cartdata">
-                  <img src={product.image} alt="" />
+                  <img src={`https://api.timbu.cloud/images/${product.image}`} alt="" />
                   <span>{product.name}</span>
                 </div>
               </div>
