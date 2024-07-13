@@ -4,8 +4,6 @@ import Pagebadge from '@/components/Pagebadge'
 import Productcard from '@/components/Productcard'
 import React, { useEffect, useState , useContext} from 'react'
 import { VeeContext } from "@/components/Chatcontext";
-import { database } from '@/components/firebaseConfig';
-import { ref, onValue } from 'firebase/database';
 import Footer from '@/components/Footer';
 
 const page = () => {

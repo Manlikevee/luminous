@@ -56,7 +56,7 @@ useEffect(() => {
     let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
     // Check if item already exists in cart
-    const existingItem = cartItems.find(item => item.id === data.id);
+    const existingItem = cartItems.find(item => item.id === products.id);
 
     if (existingItem) {
       // If item exists, update quantity
@@ -67,13 +67,13 @@ useEffect(() => {
     } else {
       // If item does not exist, add new item to cartItems array
       cartItems.push({
-        id: data.id,
-        name: data.product_name,
-        price:  data.product_price,
-        image:  data.image_one,
+        id: products.id,
+        name: products.product_name,
+        price:  products.product_price,
+        image:  products.image_one,
         qty: 1, // Initial quantity is 1
       });
-      toast.message(`${data.product_name}`, {
+      toast.message(`${products.product_name}`, {
         description: 'Item Added To Cart',
       })
     }
